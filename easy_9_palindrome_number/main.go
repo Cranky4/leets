@@ -14,26 +14,13 @@ func isPalindrome(x int) bool {
         return true
     }
 
-    arr := make([]int, 0)
+    n := x
+    rev := 0
 
-    for x > 9 {
-        arr = append(arr, x % 10)
-        x /= 10
+    for n > 0 {
+        rev = rev * 10 + (n % 10)
+        n /= 10
     }
 
-    arr = append(arr, x)
-
-   
-   i :=0 
-   j := len(arr)-1
-
-   for i < j {
-       if arr[i] != arr[j] {
-           return false
-       }
-       i++
-       j--
-   }
-
-    return true
+    return x == rev
 }
